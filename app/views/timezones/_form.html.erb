@@ -1,0 +1,22 @@
+<%= form_with(model: timezone, local: true) do |form| %>
+  <% if timezone.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(timezone.errors.count, "error") %> prohibited this timezone from being saved:</h2>
+
+      <ul>
+      <% timezone.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :zone %>
+    <%= form.text_field :zone %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

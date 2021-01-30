@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<div id="titleText">
+  <h1>Clock+</h1>
+  <h2>Clock+ built by Mitchell Susa - s3601130@student.rmit.edu.au - 90+ Level - Tue 6:30pm</h2>
+</div>
+
+<div id="index_div">
+  <div id="color_key">
+    <%= image_tag("green.png", :size => "20x20") %><p> Business Time</p><br/>
+    <hr/>
+    <%= image_tag("yellow.png", :size => "20x20") %><p> Business Overtime</p><br/>
+    <hr/>
+    <%= image_tag("red.png", :size => "20x20") %><p> Personal Time</p><br/>
+    <hr/>
+    <%= image_tag("moon.png", :size => "20x20") %><p> Sleeping Time</p><br/>
+  </div>
+
+  <div id="clocks_wrapper">
+    <%= render partial: "clock" %>
+  </div>
+
+  <div id="theme_checkbox">
+    <div id="themeRadio">
+      <p>Color Theme</p>
+      <input type="radio" id="white" name="theme" value="white" onclick="changeColour('white');">
+      <label for="white">White</label>
+      <input type="radio" id="black" name="theme" value="black" onclick="changeColour('black');">
+      <label for="black">Black</label>
+      <input type="radio" id="pink" name="theme" value="pink" onclick="changeColour('pink');">
+      <label for="pink">Pink</label>
+    </div>
+    <br/>
+    <br/>
+    <%= check_box_tag("tfcheck", "tfcheck", false, :onclick=>"tfHour();", :autocomplete=>"off") %> 24-Hour Clock
+  </div>
+</div>

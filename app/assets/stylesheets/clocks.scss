@@ -1,0 +1,111 @@
+// Place all the styles related to the clocks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+//index page
+#index_div{
+    margin: auto;
+    width:100%;
+}
+//clocks
+#clocks_wrapper{
+    float: left;
+    width: 25%;
+    border-style: solid;
+    margin-bottom: 100px;
+    display: list-item;
+}
+
+.indiClock{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+
+    border-style: solid;
+}
+#leftClock{
+    flex: 1 1 0px;
+}
+
+#rightClock{
+    flex: 1 1 0px;
+    text-align: right;
+    padding-top: 10px;
+}
+
+#newClock{
+    text-align: center;
+}
+
+#TimeDiv h1{
+    font-size: 20px;
+}
+
+.indiClock:hover #delDiv{
+    display:block; 
+}
+
+#newClock a{
+    text-decoration: none;
+}
+
+//delete button
+#delDiv{
+    display:none;
+    padding-left: 5px;
+}
+
+#delDiv a{
+    text-decoration: none;
+    color: green;
+}
+
+//right elements
+#theme_checkbox{
+    width: 15%;
+    margin-top: 10%;
+    padding: 10px;
+    float:left;
+}
+
+#themeRadio label{
+    display: inline;
+    padding: 10px;
+    border-style: solid;
+    margin-right: 5px;
+}
+
+#themeRadio input{
+    display:none;
+}
+
+:checked + label{
+    color: white;
+    background-color: blue;
+}
+
+
+//left elements
+#color_key{
+    float:left;
+    width: 10%;
+    margin-left: 25%;
+    margin-top: 10%;
+    padding: 10px;
+}
+#color_key img{
+    display: inline;
+}
+
+#color_key p{
+    display: inline;
+}
+
+//title of index
+#titleText{
+    margin:auto;
+    text-align: center;
+}
+
+#titleText h1{
+    font-size: 60px;
+}

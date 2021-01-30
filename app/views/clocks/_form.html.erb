@@ -1,0 +1,22 @@
+<%= form_for @clock do |form| %>
+  <% if clock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(clock.errors.count, "error") %> prohibited this clock from being saved:</h2>
+
+      <ul>
+      <% clock.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="search">
+        <%= form.label :city %>
+        <%= form.autocomplete_field :city,  autocomplete_city_name_cities_path%>
+        <input type="reset">
+        <%= form.submit %>
+  </div>
+
+  <%= form.hidden_field :timezone, values: "blank" %>
+<% end %>

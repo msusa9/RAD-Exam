@@ -1,0 +1,57 @@
+    <% @clocks.each do |clock| %>
+            <% Time.zone = clock.timezone %>
+            <% hour = Time.zone.now.hour %>
+                <div class="indiClock">
+
+                    <div id="leftClock">
+                        <div id="city">
+                            <h2><%= clock.city %></h2>
+                        </div>
+                        
+                        
+                        <div id="timediff">
+                            <% if clock.city != "Melbourne" %>
+                            <% if @defaultTime.utc_offset > Time.zone.now.utc_offset %>
+                                -
+                            <% else %>
+                                +
+                            <% end %>
+                            <%=(((Float(@defaultTime.utc_offset) - Float(Time.zone.now.utc_offset))/60)/60).abs %>h
+                            <% end %>
+                        </div>
+                    </div>
+                    
+                    <div id="rightClock">
+
+                        <div id="TimeDiv">
+                            <%= render partial: "time" %>
+                        </div>
+                        
+                        <div id="daydiff">
+                            <%= clock.daydiff %>
+                        </div>
+                        
+                        <div id="timeIcon">
+                            <% if hour>=9 && hour<18 %>
+                                <%= image_tag("green.png", :size => "20x20") %>
+                            <% elsif hour>=18 && hour<20 %>
+                                <%= image_tag("yellow.png", :size => "20x20") %>
+                            <% elsif hour>=8 && hour<9 %>
+                                <%= image_tag("red.png", :size => "20x20") %>
+                            <% elsif hour>=20 && hour<23 %>
+                                <%= image_tag("red.png", :size => "20x20") %>
+                            <% else %>
+                                <%= image_tag("moon.png", :size => "20x20") %>
+                            <% end %>
+                        </div>
+                    </div>
+                    <div id="delDiv"><%= link_to 'X', clock, method: :delete, data: { confirm: 'Are you sure?' }, id:"delete"%></div>    
+                </div>
+
+    <% end %>
+    <div id="newClock">
+        <% if @clocks.empty? %>
+            <p>Click + to Add a Clock</p>
+        <% end %>
+        <h1><%= link_to '+', new_clock_path, method: :get%></h1>
+    </div>
